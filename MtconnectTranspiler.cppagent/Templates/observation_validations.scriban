@@ -1,0 +1,5 @@
+Validation ControlledVocabularies {
+{% for item in source.items %}
+    { "{{ item.name }}", { {% for value in item.values %}{ "{value.name}", 0 },{% end %} } },
+{% end %}
+};
