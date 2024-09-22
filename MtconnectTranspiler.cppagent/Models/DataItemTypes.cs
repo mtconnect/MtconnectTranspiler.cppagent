@@ -3,6 +3,7 @@ using MtconnectTranspiler.CodeGenerators.ScribanTemplates;
 
 namespace MtconnectTranspiler.cppagent.Models
 {
+    [ScribanTemplate("observation_validations.scriban")]
     public class DataItemTypes : IFileSource
     {
         public DataItemType[] Items { get; set; }

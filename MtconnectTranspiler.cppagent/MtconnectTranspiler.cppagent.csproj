@@ -8,10 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="appsettings.Development.json" />
+    <None Remove="appsettings.json" />
     <None Remove="Templates\observation_validations.scriban" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Templates\observation_validations.scriban">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

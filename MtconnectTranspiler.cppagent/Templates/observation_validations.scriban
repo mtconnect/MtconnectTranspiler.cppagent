@@ -1,5 +1,5 @@
 Validation ControlledVocabularies {
-{% for item in source.items %}
-    { "{{ item.name }}", { {% for value in item.values %}{ "{value.name}", 0 },{% end %} } },
-{% end %}
+{{~ for item in source.items ~}}
+    { "{{ item.name }}", { {{ for value in item.values ~}}{ "{{ value.name }}", {{ if value.deprecated != null && value.deprecated != "" ~}}SCHEMA_VERSION({{ value.deprecated | string.replace "." ", " }}){{~ else ~}}0{{~ end }} }, {{ end }} } },
+{{~ end ~}}
 };

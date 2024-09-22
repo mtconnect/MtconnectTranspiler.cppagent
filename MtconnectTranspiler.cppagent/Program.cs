@@ -13,15 +13,6 @@ namespace MtconnectTranspiler.cppagent
         static void Main(string[] args)
         {
 
-            if (args.Length == 0) throw new ArgumentNullException(nameof(args), "Missing projectPath argument");
-
-            string projectPath = args[0];
-            if (!Directory.Exists(projectPath))
-            {
-                Consoul.Write("Creating project path: " + projectPath);
-                Directory.CreateDirectory(projectPath);
-            }
-
             IConfiguration configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
 #if DEBUG
