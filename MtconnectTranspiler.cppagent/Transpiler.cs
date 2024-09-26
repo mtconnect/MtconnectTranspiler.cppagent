@@ -28,6 +28,7 @@ namespace MtconnectTranspiler.cppagent
             {
                 Items = MtconnectTranspiler.Sinks.CSharp.NavigationExtensions
                     .GetObservationTypes()
+                    .Where(o => o.Category == "Event")
                     .Select(o => new DataItemType(o))
                     .ToArray()
             };

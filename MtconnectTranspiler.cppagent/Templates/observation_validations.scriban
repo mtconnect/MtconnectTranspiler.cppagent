@@ -1,5 +1,5 @@
 Validation ControlledVocabularies {
 {{~ for item in source.items ~}}
-    { "{{ item.name }}", { {{ for value in item.values ~}}{ "{{ value.name }}", {{ if value.deprecated != null && value.deprecated != "" ~}}SCHEMA_VERSION({{ value.deprecated | string.replace "." ", " }}){{~ else ~}}0{{~ end }} }, {{ end }} } },
+    {"{{ item.name }}", { {{~ for value in item.values ~}}{"{{ value.name }}", { {{ if value.introduced != null && value.introduced != "" ~}}SCHEMA_VERSION({{ value.introduced | string.replace "." ", " }}){{~ else ~}}0{{~ end ~}}, {{ if value.deprecated != null && value.deprecated != "" ~}}SCHEMA_VERSION({{ value.deprecated | string.replace "." ", " }}){{~ else ~}}0{{~ end ~}} } }{{ if !for.last }}, {{ end }}{{ end ~}}}}{{ if !for.last }},{{ end }}
 {{~ end ~}}
 };
